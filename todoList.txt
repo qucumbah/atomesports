@@ -1,8 +1,10 @@
 X вёрстка
 X адаптивность
-﻿X смена ночной/дневной темы
 X логин/логаут
 X localStorage
 X header bg canvas anim
-X header title anim
-X добавить bs4
+V header title anim
+V добавить bs4
+
+отменено:
+смена ночной/дневной темы

@@ -3,35 +3,93 @@
   <head>
     <meta charset="utf-8">
     <title>Киберспортивный клуб Атом</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="lib/bootstrap-reboot.min.css">
+    <script src="lib/jquery-3.4.1.min.js"></script>
+    <script src="lib/popper.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
     <link rel="stylesheet/less" href="less/main.less">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
     <script src="js/main.js"></script>
   </head>
   <body>
     <nav class="menu sticky">
-      <div class="menu__container">
-        <a class="left" href="#"><img src="img/logo.png" alt="Atom logo"></a>
-        <div class="center">
-          <a>Начало</a>
-          <a>Информация</a>
-          <a>Запись</a>
-        </div>
-        <div class="right">
-          <a href="#">Войти</a>
+      <div class="container">
+        <div class="menu__content">
+          <a class="left" href="#"><img src="img/atomLogo.png" alt="Atom logo"></a>
+          <div class="center">
+            <a href="#">Начало</a>
+            <a href="#">Информация</a>
+            <a href="#">Регистрация</a>
+            <a href="#">Участники</a>
+            <a href="#">Зрители</a>
+            <a href="#">Подвал</a>
+          </div>
+          <div class="right">
+            <a class="button" href="#">Войти</a>
+          </div>
         </div>
       </div>
     </nav>
 
     <header class="header">
-      <div class="menuPlaceholder"></div>
-      <div class="header__content">
-          <h1>Киберспортивный турнир в клубе Атом</h1>
+      <div class="darken">
+        <div class="menuPlaceholder"></div>
+        <div class="container">
+          <div class="header__content">
+            <h1>Киберспортивный центр Атом</h1>
+            <div class="changingTitle">
+              <span class="pre">У нас есть</span>
+              <span class="post">
+                <span>CS:GO</span>
+                <span>DOTA2</span>
+                <span>HEARTHSTONE</span>
+                <span>BATTLEFIELD</span>
+              </span>
+            </div>
+            <a class="button" href="#">Узнать больше</a>
+          </div>
+        </div>
       </div>
     </header>
 
     <div class="info">
-
+      <div class="container">
+        <h2>Преимущества игры в нашем центре</h2>
+        <div class="info__cards">
+          <div class="card" style="width: 18rem;">
+            <img src="img/card1.png" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">144гц мониторы</h5>
+              <p class="card-text">Разница между 60-герцовым монитором и монитором 144гц колоссальна, примерно такая же, как между видео в 30FPS и в 60. В наших игровых комнатах стоят именно 144гц мониторы.</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="img/card2.png" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Лучшие девайсы</h5>
+              <p class="card-text">Минимальная задержка, быстрый отклик, высочайшее качество и красивый дизайн.</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="img/card3.png" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Топовые компьютеры</h5>
+              <p class="card-text">Применительно к ПК мощность – это максимальный объем вычислений в единицу времени.</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="img/card4.png" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Удобные стулья</h5>
+              <p class="card-text">Табуретки - выбор настоящих киберспортсменов.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="record">
@@ -39,7 +97,7 @@
     </div>
 
     <footer class="footer">
-
+      <!-- <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A822b656f0766ec4583d8a4489fd01531f19191f95a2bfb6ab7cc4e76af63b7af&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script> -->
     </footer>
   </body>
 </html>

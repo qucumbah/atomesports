@@ -1,0 +1,41 @@
+.menu {
+  transition: .4s;
+  position: fixed;
+  width: 100%;
+  height: @menuHeight;
+  margin: 0;
+  z-index: 2;
+  background-color: @primary;
+  &.sticky {
+    background-color: transparent;
+  }
+}
+
+.menu__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  .left {
+    position: relative;
+    height: @menuHeight;
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 80%;
+    }
+  }
+
+  .center {
+    a {
+      text-decoration: none;
+      color: white;
+      margin-right: 30px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
