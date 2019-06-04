@@ -25,7 +25,7 @@ let changingTitle = {
             width: ${w}px;
           }
         </style>`).appendTo("head");
-      },10);
+      },100);
     }
 
     //Стиль для момента, когда слово пропадает
