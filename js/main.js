@@ -1,8 +1,10 @@
-$(()=>{
+$(function() {
   let postPhrases = $(".changingTitle .post").children();
   changingTitle.start(postPhrases);
 
   stickyMenu.apply($(".menu"));
+
+  setTimeout(()=>particles.start(),1);
 });
 
 let changingTitle = {
@@ -81,5 +83,115 @@ let stickyMenu = {
         elem.addClass("sticky");
       }
     });
+  }
+}
+
+let particles = {
+  start() {
+    this.createCanvas();
+    this.createParticles();
+    setInterval(()=>this.draw(),15);
+
+    this.canvas.mousemove(e=>{
+      this.mouseX = e.pageX;
+      this.mouseY = e.pageY;
+    });
+  },
+
+  createCanvas() {
+    this.width = document.body.clientWidth;
+    //изменяется позже, начальное значение чтобы запустилось
+    this.height = screen.height;
+    this.canvas = $('<canvas id="canvas" />').attr({
+      width: this.width,
+      height: this.height
+    }).appendTo(".header");
+    this.ctx = this.canvas.get(0).getContext("2d");
+    this.numberOfParticles = 40;
+  },
+
+  updateHeight() {
+    /*
+    При каждом изменении разрешения генерируем новый канвас, чтобы концентрация
+    частиц всегда оставалась неизменной
+    */
+    let newHeight = $(".header").height();
+    if (newHeight!=this.height) {
+      this.height = newHeight;
+      this.canvas.attr("height",this.height);
+      this.createParticles();
+    }
+  },
+
+  createParticles() {
+    //Поставим примерно одинаковую концентрацию частиц для любого разрешения
+    this.numberOfParticles = 6e-5*this.width*this.height;
+    //this.numberOfParticles = 40;
+    console.log(this.numberOfParticles);
+    this.points = [];
+    for (let i = 0;i<this.numberOfParticles;i++) {
+      let amplitude = 3;
+      this.points[i] = {
+        x: Math.random()*this.width,
+        y: Math.random()*this.height,
+        dx: amplitude*(Math.random()-0.5),
+        dy: amplitude*(Math.random()-0.5)
+      };
+    }
+  },
+
+  draw() {
+    this.updateHeight();
+
+    this.ctx.clearRect(0,0,this.width,this.height);
+
+    for (let i = 0;i<this.numberOfParticles;i++) {
+      let {x,y,dx,dy} = this.points[i];
+
+      //Отрисовываем саму частицу
+      this.ctx.beginPath();
+    	this.ctx.arc(x, y, 2, 0, 2*Math.PI, false);
+    	this.ctx.fillStyle = 'white';
+    	this.ctx.fill();
+
+      //Движение
+      this.points[i].x+=dx;
+      this.points[i].y+=dy;
+
+      //Отталкивание от стенок
+      if (x<0) {
+        this.points[i].dx = Math.abs(dx);
+      } else if (x>this.width) {
+        this.points[i].dx = -Math.abs(dx);
+      }
+      if (y<0) {
+        this.points[i].dy = Math.abs(dy);
+      } else if (y>this.height) {
+        this.points[i].dy = -Math.abs(dy);
+      }
+
+      //Отрисовываем линии (только если квадрат расстояния между ними <50000)
+      let minDist = 50000;
+      for (let j = 0;j<this.numberOfParticles;j++) {
+        let diffX = x - this.points[j].x;
+        //console.log(diffX);
+        let diffY = y - this.points[j].y;
+        let dist = diffX*diffX + diffY*diffY;
+
+        if (dist>minDist) {
+          continue;
+        }
+
+        //Доля от максимального квадрата удалённости
+        let tone = (minDist-dist)/minDist;
+        this.ctx.lineWidth = 2*tone;
+        this.ctx.strokeStyle=`rgba(255,255,255,${0.5*tone})`;
+        //Сама линия
+        this.ctx.beginPath();
+        this.ctx.moveTo(x, y);
+        this.ctx.lineTo(this.points[j].x, this.points[j].y);
+        this.ctx.stroke();
+      }
+    }
   }
 }
