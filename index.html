@@ -93,7 +93,40 @@
     </div>
 
     <div class="record">
-
+      <div class="darken"></div>
+      <div class="container">
+        <h2>Запись на турнир</h2>
+        <div class="forms">
+          <form class="recordForm recordForm--team" action="" method="post">
+            <h3>В качестве участника</h3>
+            <div class="recordForm__item">
+              <label for="recordForm__teamName">Название команды:</label><input type="text" name="" value="" id="recordForm__teamName" required>
+            </div>
+            <div class="recordForm__item">
+              <label for="recordForm__discipline">Дисциплина:</label>
+              <select id="recordForm__discipline" size="1" required>
+                <option value="csgo">CS:GO</option>
+                <option value="dota">DOTA2</option>
+              </select>
+            </div>
+            <input class="button" type="submit" name="button">
+          </form>
+          <form class="recordForm recordForm--viewer" action="" method="post">
+            <h3>В качестве зрителя</h3>
+            <div class="recordForm__item">
+              <label for="recordForm__teamName">Полное имя:</label><input type="text" name="" value="" id="recordForm__teamName" required>
+            </div>
+            <div class="recordForm__item">
+              <label for="recordForm__discipline">Дисциплина:</label>
+              <select id="recordForm__discipline" size="1" required>
+                <option value="csgo">CS:GO</option>
+                <option value="dota">DOTA2</option>
+              </select>
+            </div>
+            <input class="button" type="submit" name="button">
+          </form>
+        </div>
+      </div>
     </div>
 
     <footer class="footer">

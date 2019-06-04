@@ -1,0 +1,39 @@
+.record {
+  background-image: url("@{imgdir}/close-up-code-coding-160107.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden; //anti margin collapse
+  position: relative;
+
+  h2 {
+    margin: 50px 0;
+    text-align: center;
+  }
+
+  z-index: 0;
+  .darken {
+    z-index: -1;
+  }
+
+  .forms {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 100px;
+  }
+}
+
+.recordForm {
+  h3 {
+    margin-bottom: 30px;
+  }
+
+  .recordForm__item {
+    display: block;
+    margin-bottom: 10px;
+    
+    [type="text"] {
+      margin-left: 5px;
+    }
+  }
+}

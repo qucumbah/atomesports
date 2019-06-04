@@ -1,10 +1,13 @@
 $(function() {
   let postPhrases = $(".changingTitle .post").children();
-  changingTitle.start(postPhrases);
+  postPhrases.hide();
+  setTimeout(()=>changingTitle.start(postPhrases),100);
 
   stickyMenu.apply($(".menu"));
 
   setTimeout(()=>particles.start(),1);
+
+  //formHandler.apply();
 });
 
 let changingTitle = {
