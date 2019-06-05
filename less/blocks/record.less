@@ -2,13 +2,8 @@
   background-image: url("@{imgdir}/close-up-code-coding-160107.jpg");
   background-size: cover;
   background-position: center;
-  overflow: hidden; //anti margin collapse
+  overflow: hidden;
   position: relative;
-
-  h2 {
-    margin: 50px 0;
-    text-align: center;
-  }
 
   z-index: 0;
   .darken {
@@ -18,7 +13,7 @@
   .forms {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: baseline;
     margin-bottom: 100px;
   }
 }
@@ -31,9 +26,5 @@
   .recordForm__item {
     display: block;
     margin-bottom: 10px;
-    
-    [type="text"] {
-      margin-left: 5px;
-    }
   }
 }

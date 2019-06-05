@@ -102,8 +102,8 @@ let particles = {
   },
 
   createCanvas() {
+    //изменяются позже, начальное значение чтобы запустилось
     this.width = document.body.clientWidth;
-    //изменяется позже, начальное значение чтобы запустилось
     this.height = screen.height;
     this.canvas = $('<canvas id="canvas" />').attr({
       width: this.width,
@@ -113,15 +113,18 @@ let particles = {
     this.numberOfParticles = 40;
   },
 
-  updateHeight() {
+  updateDimensions() {
     /*
     При каждом изменении разрешения генерируем новый канвас, чтобы концентрация
     частиц всегда оставалась неизменной
     */
     let newHeight = $(".header").height();
-    if (newHeight!=this.height) {
+    let newWidth = document.body.clientWidth;
+    if (newHeight!=this.height || newWidth!=this.width) {
       this.height = newHeight;
+      this.width = newWidth;
       this.canvas.attr("height",this.height);
+      this.canvas.attr("width",this.width);
       this.createParticles();
     }
   },
@@ -144,7 +147,7 @@ let particles = {
   },
 
   draw() {
-    this.updateHeight();
+    this.updateDimensions();
 
     this.ctx.clearRect(0,0,this.width,this.height);
 

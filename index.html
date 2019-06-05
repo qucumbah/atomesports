@@ -59,7 +59,7 @@
     <div class="info">
       <div class="container">
         <h2>Преимущества игры в нашем центре</h2>
-        <div class="info__cards">
+        <div class="cards">
           <div class="card" style="width: 18rem;">
             <img src="img/card1.png" class="card-img-top" alt="">
             <div class="card-body">
@@ -88,6 +88,20 @@
               <p class="card-text">Табуретки - выбор настоящих киберспортсменов.</p>
             </div>
           </div>
+          <div class="card" style="width: 18rem;">
+            <img src="img/card5.png" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Игровые коврики</h5>
+              <p class="card-text">Для лучшего ощущения игры.</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="img/card6.png" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Много игр</h5>
+              <p class="card-text">Большой выбор.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -100,10 +114,13 @@
           <form class="recordForm recordForm--team" action="" method="post">
             <h3>В качестве участника</h3>
             <div class="recordForm__item">
-              <label for="recordForm__teamName">Название команды:</label><input type="text" name="" value="" id="recordForm__teamName" required>
+              <label for="recordForm__teamName">Название команды:</label><br><input type="text" name="" value="" id="recordForm__teamName" required>
             </div>
             <div class="recordForm__item">
-              <label for="recordForm__discipline">Дисциплина:</label>
+              <label for="recordForm__teamName">Ссылка на логотип команды:</label><br><input type="text" name="" value="" id="recordForm__teamName" required>
+            </div>
+            <div class="recordForm__item">
+              <label for="recordForm__discipline">Дисциплина:</label><br>
               <select id="recordForm__discipline" size="1" required>
                 <option value="csgo">CS:GO</option>
                 <option value="dota">DOTA2</option>
@@ -114,10 +131,10 @@
           <form class="recordForm recordForm--viewer" action="" method="post">
             <h3>В качестве зрителя</h3>
             <div class="recordForm__item">
-              <label for="recordForm__teamName">Полное имя:</label><input type="text" name="" value="" id="recordForm__teamName" required>
+              <label for="recordForm__teamName">Полное имя:</label><br><input type="text" name="" value="" id="recordForm__teamName" required>
             </div>
             <div class="recordForm__item">
-              <label for="recordForm__discipline">Дисциплина:</label>
+              <label for="recordForm__discipline">Дисциплина:</label><br>
               <select id="recordForm__discipline" size="1" required>
                 <option value="csgo">CS:GO</option>
                 <option value="dota">DOTA2</option>
@@ -126,6 +143,13 @@
             <input class="button" type="submit" name="button">
           </form>
         </div>
+      </div>
+    </div>
+
+    <div class="approved">
+      <div class="container">
+        <h2>Подтверждённые участники</h2>
+
       </div>
     </div>
 
