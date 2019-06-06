@@ -1,10 +1,12 @@
-X вёрстка
-X адаптивность
+V вёрстка
+V адаптивность
 X логин/логаут
-X localStorage
-X header bg canvas anim
+V localStorage
+V header bg canvas anim
 V header title anim
 V добавить bs4
+X bs4 modal form
+X links
 
 отменено:
 смена ночной/дневной темы

@@ -10,9 +10,26 @@ $(function() {
   let scrollPaneContainer = $(".approved .container");
   setTimeout(()=>scrollPane.apply(scrollPaneContainer),100);
 
-  teamsHandler.addForm($(".recordForm__team"));
+  let isLoggedIn = localStorage.getItem("isLoggedIn");
+  if (isLoggedIn) {
+    teamsHandler.addForm($(".recordForm__team"));
+    viewersHandler.addForm($(".recordForm__viewer"));
+  }
   teamsHandler.addScrollPane($(".approved .scrollPane"));
-  viewersHandler.addForm($(".recordForm__viewer"));
+
+  $("#formAccess").hide();
+  $(".record .forms").click(function() {
+    if (!isLoggedIn) {
+      $("#formAccess").show();
+    }
+  });
+  $("#formNotLoggedIn").hide();
+  $(".record .forms").children().submit(function(event) {
+    event.preventDefault();
+    if (!isLoggedIn) {
+      $("#formNotLoggedIn").show();
+    }
+  });
 
   $(".burgerButton").click(function() {
     $(".menu .right").slideToggle(300, function() {
