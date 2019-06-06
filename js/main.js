@@ -7,10 +7,13 @@ $(function() {
 
   setTimeout(()=>particles.start(),1);
 
-  //formHandler.apply();
-
   let scrollPaneContainer = $(".approved .container");
   setTimeout(()=>scrollPane.apply(scrollPaneContainer),100);
+
+  teamsHandler.addForm($(".recordForm__team"));
+  teamsHandler.addScrollPane($(".approved .scrollPane"));
+  viewersHandler.addForm($(".recordForm__viewer"));
+  //viewersHandler.addContainer($(".scrollPane"));
 });
 
 let changingTitle = {
@@ -217,11 +220,141 @@ let scrollPane = {
     options.click(function() {
       options.removeClass("active");
       $(this).addClass("active");
-      let n = $(this).index(options);
-      console.log(n);
-      scrollPane.animate({
-        right: -n*scrollPaneContainer.width()+"px",
+      let n = $(this).index();
+      scrollPane.stop().animate({
+        right: n*scrollPaneContainer.width()+"px",
       });
     });
   }
+}
+
+let teamsHandler = {
+  addForm(form) {
+    form.submit(function(event) {
+      event.preventDefault();
+
+      let teamName = $("#recordForm__teamName").val();
+      let teamLogo = $("#recordForm__teamLogo").val();
+      let teamDescription = $("#recordForm__teamDescription").val();
+      let discipline = $("#recordForm__teamDiscipline").val();
+
+      let team = {
+        teamName,
+        teamLogo,
+        teamDescription,
+        discipline
+      };
+      console.log(team);
+
+      let nTeams;
+      if (localStorage.getItem("nTeams")===undefined) {
+        nTeams = 0;
+      } else {
+        nTeams = +localStorage.getItem("nTeams")
+      }
+
+      localStorage.setItem("__team"+nTeams, JSON.stringify(team));
+      localStorage.setItem("nTeams", nTeams+1);
+      location.reload();
+    });
+  },
+
+  addScrollPane(scrollPane) {
+    let nTeams = localStorage.getItem("nTeams");
+
+    let csgoContainer = scrollPane.children(".csgo");
+    let dotaContainer = scrollPane.children(".dota");
+
+    for (let i = 0;i<nTeams;i++) {
+      let team = JSON.parse(localStorage.getItem("__team"+i));
+
+      let container = team.discipline=="csgo"?csgoContainer:dotaContainer;
+
+      /*XMLHttpRequest: не получилось сделать проверку правильности ссылки,
+      реквест от большинства серверов возвращал трудноуловимую ошибку;
+      Вместо этого был картинкам добавлен атрибут onerror с обработкой ошибок
+      //Проверяем, чтобы изображение было рабочим
+      let request = new XMLHttpRequest();
+      request.open("HEAD",team.teamLogo);
+      request.onload = ()=>{
+        //console.log(team.teamLogo);
+        //console.log(request.status);
+
+        let brokenLogo = request.status!=200 || !team.teamLogo;
+        if (brokenLogo) {
+          team.teamLogo = "img/atomLogo.png";
+        }
+
+        this.appendCard(
+            container,team.teamName,team.teamLogo,team.teamDescription);
+      };
+      request.send();
+      request.onerror = e=>{ //Проблема здесь
+        console.log(e);
+      };
+      */
+      this.appendCard(
+          container,team.teamName,team.teamLogo,team.teamDescription);
+    }
+  },
+
+  appendCard(container, name, logo, description) {
+    container.append(`
+      <div class="card" style="width: 15rem;">
+        <img src="${logo}"  class="card-img-top" onerror="imgError(this);">
+        <div class="card-body">
+          <h5 class="card-title">${name}</h5>
+          <p class="card-text">${description}</p>
+        </div>
+      </div>
+    `);
+  }
+}
+
+let viewersHandler = {
+  addForm(form) {
+    form.submit(function(event) {
+      event.preventDefault();
+
+      let viewerName = $("#recordForm__viewerName").val();
+      let discipline = $("#recordForm__viewerDiscipline").val();
+
+      let viewer = {
+        viewerName,
+        discipline
+      };
+      console.log(viewer);
+
+      let nViewers;
+      if (localStorage.getItem("nViewers")===undefined) {
+        nViewers = 0;
+      } else {
+        nViewers = +localStorage.getItem("nViewers")
+      }
+
+      localStorage.setItem("__viewer"+nViewers, JSON.stringify(viewer));
+      localStorage.setItem("nViewers", nViewers+1);
+      location.reload();
+    });
+  },
+
+  addScrollPane(scrollPane) {
+    let nViewers = localStorage.getItem("nViewers");
+
+    if (!nViewers) {
+      let noEntriesMessage = `<p>Зрителей нет</p>`;
+      container.append(noEntriesMessage);
+      return;
+    }
+
+    for (let i = 0;i<nViewers;i++) {
+      let viewer = JSON.parse(localStorage.getItem("__viewer"+i));
+
+    }
+  }
+}
+
+function imgError(img) {
+  img.onerror = "";
+  img.src = "img/atomLogo.png";
 }

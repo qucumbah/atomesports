@@ -31,12 +31,22 @@
   .scrollPane {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 300px;
+    min-height: 200px;
     background-color: darken(@primary,15%);
     position: relative;
 
     .cards {
       align-items: center;
+      margin-top: 10px;
+      .card {
+        min-height: 350px;
+      }
+      .card img {
+        width: 10rem;
+        height: 10rem;
+        object-fit: contain;
+        margin: 0 auto;
+      }
     }
   }
 }
