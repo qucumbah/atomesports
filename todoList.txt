@@ -1,11 +1,11 @@
 V вёрстка
 V адаптивность
-X логин/логаут
+V логин/логаут
 V localStorage
 V header bg canvas anim
 V header title anim
 V добавить bs4
-X bs4 modal form
+V bs4 modal form
 X links
 
 отменено:

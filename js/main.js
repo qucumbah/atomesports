@@ -38,6 +38,10 @@ $(function() {
       }
     });
   });
+
+  scrollHandler.start();
+
+  loginHandler.apply($("#login"),$("#loginButton"));
 });
 
 let changingTitle = {
@@ -360,25 +364,39 @@ let viewersHandler = {
       localStorage.setItem("nViewers", nViewers+1);
       location.reload();
     });
-  },
-
-  addScrollPane(scrollPane) {
-    let nViewers = localStorage.getItem("nViewers");
-
-    if (!nViewers) {
-      let noEntriesMessage = `<p>Зрителей нет</p>`;
-      container.append(noEntriesMessage);
-      return;
-    }
-
-    for (let i = 0;i<nViewers;i++) {
-      let viewer = JSON.parse(localStorage.getItem("__viewer"+i));
-
-    }
   }
 }
 
+/*
+Вызывается когда html не смог прогрузить картинку из ссылки;
+заменяет картинку на логотип
+*/
 function imgError(img) {
   img.onerror = "";
   img.src = "img/atomLogo.png";
+}
+
+let scrollHandler = {
+  start() {
+
+  }
+}
+
+let loginHandler = {
+  apply(form, sendButton) {
+    localStorage.setItem("__loginadmin","admin");
+    sendButton.click(function() {
+      let username = $("#modalLogin").val();
+      let password = $("#modalPassword").val();
+      let successful = localStorage.getItem("__login"+username)==password;
+      if (successful) {
+        localStorage.setItem("isLoggedIn","1");
+        location.reload();
+      } else if (!this.errorMessageShown) {
+        $(".modal-body").prepend(`
+          <span style="color:red;">please try again</span>`);
+        this.errorMessageShown = true;
+      }
+    });
+  }
 }
