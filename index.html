@@ -114,13 +114,13 @@
           <form class="recordForm recordForm--team" action="" method="post">
             <h3>В качестве участника</h3>
             <div class="recordForm__item">
-              <label for="recordForm__teamName">Название команды:</label><br><input type="text" name="" value="" id="recordForm__teamName" required>
+              <label for="recordForm__teamName">Название команды:</label><span class="required"></span><br><input type="text" name="" value="" id="recordForm__teamName" required>
             </div>
             <div class="recordForm__item">
-              <label for="recordForm__teamName">Ссылка на логотип команды:</label><br><input type="text" name="" value="" id="recordForm__teamName" required>
+              <label for="recordForm__teamLogo">Ссылка на логотип команды:</label><br><input type="text" name="" value="" id="recordForm__teamLogo">
             </div>
             <div class="recordForm__item">
-              <label for="recordForm__discipline">Дисциплина:</label><br>
+              <label for="recordForm__discipline">Дисциплина:</label><span class="required"></span><br>
               <select id="recordForm__discipline" size="1" required>
                 <option value="csgo">CS:GO</option>
                 <option value="dota">DOTA2</option>
@@ -131,11 +131,11 @@
           <form class="recordForm recordForm--viewer" action="" method="post">
             <h3>В качестве зрителя</h3>
             <div class="recordForm__item">
-              <label for="recordForm__teamName">Полное имя:</label><br><input type="text" name="" value="" id="recordForm__teamName" required>
+              <label for="recordForm__viewerName">Полное имя:</label><span class="required"></span><br><input type="text" name="" value="" id="recordForm__viewerName" required>
             </div>
             <div class="recordForm__item">
-              <label for="recordForm__discipline">Дисциплина:</label><br>
-              <select id="recordForm__discipline" size="1" required>
+              <label for="recordForm__viewerDiscipline">Дисциплина:</label><span class="required"></span><br>
+              <select id="recordForm__viewerDiscipline" size="1" required>
                 <option value="csgo">CS:GO</option>
                 <option value="dota">DOTA2</option>
               </select>
@@ -149,7 +149,16 @@
     <div class="approved">
       <div class="container">
         <h2>Подтверждённые участники</h2>
-
+        <div class="options">
+          <div class="option active">Counter-Strike: Global Offensive</div>
+          <div class="option">DOTA 2</div>
+        </div>
+        <div class="scrollPaneWrapper">
+          <div class="scrollPane">
+            <div class="cards csgo"></div>
+            <div class="cards dota"></div>
+          </div>
+        </div>
       </div>
     </div>
 

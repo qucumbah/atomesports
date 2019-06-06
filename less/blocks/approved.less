@@ -1,4 +1,42 @@
 .approved {
   background-color: black;
   overflow: hidden;
+  padding-bottom: 100px;
+
+  .options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .option {
+      cursor: pointer;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      text-transform: uppercase;
+      height: 40px;
+      background-color: @primary;
+      &.active {
+        z-index: 2;
+        @activeColor: lighten(@primary,10%);
+        background-color: @activeColor;
+        box-shadow: 0px 0px 12px 2px @activeColor;
+      }
+    }
+  }
+
+  .scrollPaneWrapper {
+    overflow: hidden;
+  }
+
+  .scrollPane {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 300px;
+    background-color: darken(@primary,15%);
+    position: relative;
+
+    .cards {
+      align-items: center;
+    }
+  }
 }

@@ -8,6 +8,9 @@ $(function() {
   setTimeout(()=>particles.start(),1);
 
   //formHandler.apply();
+
+  let scrollPaneContainer = $(".approved .container");
+  setTimeout(()=>scrollPane.apply(scrollPaneContainer),100);
 });
 
 let changingTitle = {
@@ -199,5 +202,26 @@ let particles = {
         this.ctx.stroke();
       }
     }
+  }
+}
+
+let scrollPane = {
+  apply(scrollPaneContainer) {
+    this.scrollPaneContainer = scrollPaneContainer;
+
+    let options = scrollPaneContainer.children(".options").children();
+    let scrollPane = scrollPaneContainer.children(".scrollPaneWrapper").children();
+
+    scrollPane.css("width",2*scrollPaneContainer.width());
+
+    options.click(function() {
+      options.removeClass("active");
+      $(this).addClass("active");
+      let n = $(this).index(options);
+      console.log(n);
+      scrollPane.animate({
+        right: -n*scrollPaneContainer.width()+"px",
+      });
+    });
   }
 }
