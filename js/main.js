@@ -13,7 +13,14 @@ $(function() {
   teamsHandler.addForm($(".recordForm__team"));
   teamsHandler.addScrollPane($(".approved .scrollPane"));
   viewersHandler.addForm($(".recordForm__viewer"));
-  //viewersHandler.addContainer($(".scrollPane"));
+
+  $(".burgerButton").click(function() {
+    $(".menu .right").slideToggle(300, function() {
+      if ($(this).css("display")=="none") {
+        $(this).attr("style","");
+      }
+    });
+  });
 });
 
 let changingTitle = {

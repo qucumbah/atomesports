@@ -6,6 +6,7 @@
   margin: 0;
   z-index: 100;
   background-color: @primary;
+  font-size: 1.4rem;
   &.sticky {
     background-color: transparent;
   }
@@ -28,13 +29,41 @@
     }
   }
 
-  .center {
+  .right {
     a {
       text-decoration: none;
       color: white;
       margin-right: 30px;
       &:last-child {
         margin-right: 0;
+      }
+    }
+  }
+
+  .burgerButton {
+    display: none;
+  }
+
+  @media (max-width: 1279px) {
+    .burgerButton {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: @menuHeight;
+      width: @menuHeight;
+      font-size: @menuHeight*0.7;
+    }
+    .right {
+      display: none;
+      position: absolute;
+      top: @menuHeight;
+      right: 0;
+      background-color: @primary;
+      padding: 1rem;
+      a {
+        display: block;
+        height: 3rem;
       }
     }
   }
