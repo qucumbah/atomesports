@@ -7,7 +7,7 @@ V header title anim
 V добавить bs4
 V bs4 modal form
 V links
-X github link
+V github link
 
 отменено:
 смена ночной/дневной темы
