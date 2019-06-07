@@ -27,7 +27,7 @@
             <a href="#record">Регистрация</a>
             <a href="#approved">Участники</a>
             <a href="#footer">Подвал</a>
-            <a id="loginMenuButton" class="button" href="#" data-toggle="modal" data-target="#login">Войти</a>
+            <a id="loginMenuButton" class="button" href="#" data-toggle="modal" data-target="#loginModal">Войти</a>
             <a id="logoutMenuButton" class="button" href="#">Выйти</a>
           </div>
           <div class="burgerButton"><i class="fas fa-bars"></i></div>
@@ -49,7 +49,7 @@
       </button>
     </div>
 
-    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -62,7 +62,7 @@
             <form id="login">
               <div class="form-group">
                 <label for="modalLogin">Логин</label>
-                <input type="text" class="form-control" id="modalLogin" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="modalLogin">
               </div>
               <div class="form-group">
                 <label for="modalPassword">Пароль</label>
@@ -157,34 +157,34 @@
       <div class="container">
         <h2>Запись на турнир</h2>
         <div class="forms">
-          <form class="recordForm recordForm__team" action="" method="post">
+          <form class="recordForm recordForm__team" action="URL" method="post">
             <h3>В качестве участника</h3>
             <div class="recordForm__item">
-              <label for="recordForm__teamName">Название команды:</label><span class="required"></span><br><input type="text" name="" value="" id="recordForm__teamName" required>
+              <label for="recordForm__teamName">Название команды:</label><span class="required"></span><br><input type="text" name="recordForm__teamName" value="" id="recordForm__teamName" required>
             </div>
             <div class="recordForm__item">
-              <label for="recordForm__teamLogo">Ссылка на логотип команды:</label><br><input type="text" name="" value="" id="recordForm__teamLogo">
+              <label for="recordForm__teamLogo">Ссылка на логотип команды:</label><br><input type="text" name="recordForm__teamLogo" value="" id="recordForm__teamLogo">
             </div>
             <div class="recordForm__item">
               <label for="recordForm__teamDescription">Описание команды:</label><br><textarea id="recordForm__teamDescription" rows="3" cols="40"></textarea>
             </div>
             <div class="recordForm__item">
-              <label for="recordForm__discipline">Дисциплина:</label><span class="required"></span><br>
-              <select id="recordForm__teamDiscipline" size="1" required>
+              <label for="recordForm__teamDiscipline">Дисциплина:</label><span class="required"></span><br>
+              <select id="recordForm__teamDiscipline" size="1">
                 <option value="csgo">CS:GO</option>
                 <option value="dota">DOTA2</option>
               </select>
             </div>
             <input class="button" type="submit" name="button">
           </form>
-          <form class="recordForm recordForm__viewer" action="" method="post">
+          <form class="recordForm recordForm__viewer" action="URL" method="post">
             <h3>В качестве зрителя</h3>
             <div class="recordForm__item">
-              <label for="recordForm__viewerName">Полное имя:</label><span class="required"></span><br><input type="text" name="" value="" id="recordForm__viewerName" required>
+              <label for="recordForm__viewerName">Полное имя:</label><span class="required"></span><br><input type="text" name="recordForm__viewerName" value="" id="recordForm__viewerName" required>
             </div>
             <div class="recordForm__item">
               <label for="recordForm__viewerDiscipline">Дисциплина:</label><span class="required"></span><br>
-              <select id="recordForm__viewerDiscipline" size="1" required>
+              <select id="recordForm__viewerDiscipline" size="1">
                 <option value="csgo">CS:GO</option>
                 <option value="dota">DOTA2</option>
               </select>

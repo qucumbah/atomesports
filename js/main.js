@@ -93,7 +93,7 @@ let changingTitle = {
       $(".post").removeClass(`__titleExtended${cur}`);
       $(".post").addClass("__titleContracted");
 
-      setTimeout(()=>extend(),400)
+      setTimeout(()=>extend(),400);
     }
     function extend() {
       elements.eq(cur).hide();
@@ -111,7 +111,7 @@ let changingTitle = {
 
     contract();
   }
-}
+};
 
 /*
 Добавляет eventListener скролла страницы; если скролл=0, то добавляет класс
@@ -127,7 +127,7 @@ let stickyMenu = {
       }
     });
   }
-}
+};
 
 /*
 Принцип работы: создаётся канвас, отдельно в объекте particles хранится
@@ -246,7 +246,7 @@ let particles = {
       }
     }
   }
-}
+};
 
 /*
 При нажатии на кнопку прокручивает панель в одну из сторон внутри родительского
@@ -270,7 +270,7 @@ let scrollPane = {
       });
     });
   }
-}
+};
 
 /*
 При отправке формы в локальное хранилище загружается объект со свойствами
@@ -301,7 +301,7 @@ let teamsHandler = {
       if (localStorage.getItem("nTeams")===undefined) {
         nTeams = 0;
       } else {
-        nTeams = +localStorage.getItem("nTeams")
+        nTeams = +localStorage.getItem("nTeams");
       }
 
       localStorage.setItem("__team"+nTeams, JSON.stringify(team));
@@ -360,7 +360,7 @@ let teamsHandler = {
       </div>
     `);
   }
-}
+};
 
 /*
 Аналогичен teamsHandler, но не отображает зарегистрированных, а только добавляет
@@ -392,7 +392,7 @@ let viewersHandler = {
       location.reload();
     });
   }
-}
+};
 
 /*
 Вызывается когда html не смог прогрузить картинку из ссылки;
@@ -441,4 +441,4 @@ let loginHandler = {
       }
     });
   }
-}
+};
