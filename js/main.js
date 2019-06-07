@@ -46,6 +46,12 @@ $(function() {
 
 let changingTitle = {
   start(elements) {
+    /*
+    Принцип работы: вызываем метод, сворачивающий контейнер с заголовком; меняем
+    заголовок на следующий, разворачиваем обратно контейнер, ставим таймер
+    на следующее свёртывание
+    */
+
     let cur = 0;
     let numberOfElements = elements.length;
 
@@ -90,7 +96,6 @@ let changingTitle = {
       $(".post").removeClass(`__titleExtended${cur}`);
       $(".post").addClass("__titleContracted");
 
-
       setTimeout(()=>extend(),400)
     }
     function extend() {
@@ -125,6 +130,12 @@ let stickyMenu = {
 
 let particles = {
   start() {
+    /*
+    Принцип работы: создаётся канвас, отдельно в объекте particles хранится
+    некоторое количество координат и векторов движения частиц; каждые 15мс
+    отрисовываем сначала все частицы, затем линии, соединяющие близлежащие точки
+    в зависимости от расстояния между ними (ближе = толще линия)
+    */
     this.createCanvas();
     this.createParticles();
     setInterval(()=>this.draw(),15);
@@ -236,6 +247,10 @@ let particles = {
   }
 }
 
+/*
+При нажатии на кнопку прокручивает панель в одну из сторон внутри родительского
+контейнера при помощи свойства css right
+*/
 let scrollPane = {
   apply(scrollPaneContainer) {
     this.scrollPaneContainer = scrollPaneContainer;
@@ -382,8 +397,29 @@ let scrollHandler = {
   }
 }
 
+/*
+Отрисовываем нужную кнопку: если пользователь не залогинен - вход, иначе - выход
+Проверяяет наличие логина и пароля в базе; если они совпадают со введёнными, то
+ставим флаг isLoggedIn true;
+*/
 let loginHandler = {
   apply(form, sendButton) {
+    $("#loginMenuButton").hide();
+    $("#logoutMenuButton").hide();
+
+    console.log(localStorage.getItem("isLoggedIn"));
+
+    if (localStorage.getItem("isLoggedIn")) {
+      $("#logoutMenuButton").show();
+    } else {
+      $("#loginMenuButton").show();
+    }
+
+    $("#logoutMenuButton").click(function() {
+      localStorage.setItem("isLoggedIn","");
+      location.reload();
+    });
+
     localStorage.setItem("__loginadmin","admin");
     sendButton.click(function() {
       let username = $("#modalLogin").val();

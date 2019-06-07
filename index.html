@@ -19,14 +19,15 @@
     <nav class="menu sticky">
       <div class="container">
         <div class="menu__content">
-          <a class="left" href="#"><img src="img/atomLogo.png" alt="Atom logo"></a>
+          <a class="left" href="index.html"><img src="img/atomLogo.png" alt="Atom logo"></a>
           <div class="right">
-            <a href="#">Начало</a>
-            <a href="#">Информация</a>
-            <a href="#">Регистрация</a>
-            <a href="#">Участники</a>
-            <a href="#">Подвал</a>
-            <a class="button" href="#" data-toggle="modal" data-target="#login">Войти</a>
+            <a href="#header">Начало</a>
+            <a href="#info">Информация</a>
+            <a href="#record">Регистрация</a>
+            <a href="#approved">Участники</a>
+            <a href="#footer">Подвал</a>
+            <a id="loginMenuButton" class="button" href="#" data-toggle="modal" data-target="#login">Войти</a>
+            <a id="logoutMenuButton" class="button" href="#">Выйти</a>
           </div>
           <div class="burgerButton"><i class="fas fa-bars"></i></div>
         </div>
@@ -77,6 +78,7 @@
     </div>
 
     <header class="header">
+      <a name="header"></a>
       <div class="darken">
         <div class="menuPlaceholder"></div>
         <div class="container">
@@ -91,13 +93,14 @@
                 <span>BATTLEFIELD</span>
               </span>
             </div>
-            <a class="button" href="#">Узнать больше</a>
+            <a class="button" href="#info">Узнать больше</a>
           </div>
         </div>
       </div>
     </header>
 
     <div class="info">
+      <a name="info"></a>
       <div class="container">
         <h2>Преимущества игры в нашем центре</h2>
         <div class="cards">
@@ -148,6 +151,7 @@
     </div>
 
     <div class="record">
+      <a name="record"></a>
       <div class="darken"></div>
       <div class="container">
         <h2>Запись на турнир</h2>
@@ -191,6 +195,7 @@
     </div>
 
     <div class="approved">
+      <a name="approved"></a>
       <div class="container">
         <h2>Подтверждённые команды</h2>
         <div class="options">
@@ -209,6 +214,7 @@
     <footer class="footer">
       <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A822b656f0766ec4583d8a4489fd01531f19191f95a2bfb6ab7cc4e76af63b7af&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
       <div class="">
+        <a name="footer"></a>
         <h2>Приходите к нам!</h2>
         <p>Мы открыты круглосуточно.</p>
         <span class="tm">Сайт разработал Шмелев Д.Ю. 1-41хх</span>
