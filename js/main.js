@@ -1,14 +1,9 @@
-$(function() {
-  let postPhrases = $(".changingTitle .post").children();
-  postPhrases.hide();
-  setTimeout(()=>changingTitle.start(postPhrases),100);
+"use strict";
 
+$(function() {
   stickyMenu.apply($(".menu"));
 
-  setTimeout(()=>particles.start(),1);
-
-  let scrollPaneContainer = $(".approved .container");
-  setTimeout(()=>scrollPane.apply(scrollPaneContainer),100);
+  setTimeout(()=>particles.start());
 
   let isLoggedIn = localStorage.getItem("isLoggedIn");
   if (isLoggedIn) {
@@ -41,6 +36,21 @@ $(function() {
 
   loginHandler.apply($("#login"),$("#loginButton"));
 });
+
+/*
+Некоторые элементы нестабильно загружались, если пользователь заходил на
+страницу в первый раз. Это происходило из-за того, что стиль элемента не успевал
+загрузиться. Чтобы исправить это, используем window.onload, который исполняется
+только когда загрузились все ресурсы страницы (в т.ч. стили)
+*/
+window.onload = function() {
+  let scrollPaneContainer = $(".approved .container");
+  scrollPane.apply(scrollPaneContainer);
+
+  let postPhrases = $(".changingTitle .post").children();
+  postPhrases.hide();
+  changingTitle.start(postPhrases);
+}
 
 /*
 Принцип работы: вызываем метод, сворачивающий контейнер с заголовком; меняем
